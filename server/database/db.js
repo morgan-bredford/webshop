@@ -50,7 +50,6 @@ router.route("/registeruser").post( (req, res) => {
         } )
     })
     .catch(err => res.status(400).json('Error: ' + err))
-    console.log('saved')
 })
 
 router.route('/updateuser').post((req, res) => {
@@ -97,7 +96,6 @@ router.route("/addproduct").post( validateToken, (req, res) => {
             success: true
         })
     } )
-    console.log('saved')
 })
 
 router.route('/updateproduct').post( validateToken, (req, res) => {
