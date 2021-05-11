@@ -1,0 +1,5 @@
+.env
+/ignore
+/node_modules
+/build
+client.bundle.js

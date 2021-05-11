@@ -1,0 +1,24 @@
+clear input
+loading
+userpage info on server-side
+
+
+email out when register?
+regex in node
+
+app.get('/2', (req,res) => {
+    let context = {};
+    const markup = ReactDOMServer.renderToString(
+  <StaticRouter location={req.url} context={context}>
+    <App />
+  </StaticRouter>
+    )
+    if (context.url) {
+    // Somewhere a `<Redirect>` was rendered
+    //redirect(301, context.url);
+    console.log('yes')
+    } else {
+    // we're good, send the response
+    console.log('no')
+    }
+})
