@@ -2,4 +2,5 @@
 /ignore
 /node_modules
 /build
-client.bundle.js
+/public/client.bundle.js
+/public/images
