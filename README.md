@@ -3,6 +3,7 @@
 A demo web shop built with React, Server-Side Rendering, NodeJS, GraphQL, MongoDB, Webpack, jsonwebtokens.
 
 For the client side i used functional components with Hooks. Instead of using Redux i used a combination of useReducer, useContext, Router v5 and Hooks.
+
 -Hooks
 -useReducer
 -useContext
