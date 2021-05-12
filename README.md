@@ -1,5 +1,7 @@
 # webshop
  MB's webbshop  
+ http://ec2-13-48-85-50.eu-north-1.compute.amazonaws.com:8181/  
+ 
 En fiktiv webbshop byggd som arbetsprov gjord med React, Server-Side Rendering, NodeJS, GraphQL, MongoDB, Webpack, jsonwebtokens.
 
 I klientdelen använder jag functional components med Hooks. Istället för Redux använder jag useReducer, useContext, Router v5 och Hooks tillsammans.  
