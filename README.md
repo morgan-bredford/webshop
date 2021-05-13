@@ -25,6 +25,13 @@ There are no sessions. Normal users login with password that is hashed in the da
 -Local storage\
 -jsonwebtokens  
 
+Things yet to be implemented\
+-a checkout page\
+-animation for frontpage carousel\
+-a seller's page\
+-more form validation\
+-more secure admin check on client side  
+
 --------------------------------------------------------------------------------------------------------  
 En fiktiv webbshop byggd som arbetsprov gjord med React, Server-Side Rendering, NodeJS, GraphQL, MongoDB, Webpack, jsonwebtokens.
 
