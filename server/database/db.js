@@ -31,10 +31,6 @@ router.route("/login").post((req, res) => {
     .catch(err => res.send(err))
 })
 
-router.route("/validateJWT").post( validateToken, (req, res) => {
-    res.send(true)
-})
-
 router.route("/registeruser").post( (req, res) => {
     bcrypt.hash(req.body.password, 10)
     .then((hash) => {
@@ -59,17 +55,17 @@ router.route('/updateuser').post((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err))
 })
 
-router.route('/removeuser').post( validateToken, (req, res) => {
-    User.findOneAndRemove({_id: req.body.id})
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err))
-})
+// router.route('/removeuser').post( validateToken, (req, res) => {
+//     User.findOneAndRemove({_id: req.body.id})
+//         .then(users => res.json(users))
+//         .catch(err => res.status(400).json('Error: ' + err))
+// })
 
-router.route('/getusers').post( validateToken, (req, res) => {
-    User.find({})
-    .then(users => res.send(users))
-    .catch(err => res.send(err))
-})
+// router.route('/getusers').post( validateToken, (req, res) => {
+//     User.find({})
+//     .then(users => res.send(users))
+//     .catch(err => res.send(err))
+// })
 
 router.route('/searchproducts').post( (req, res) => {
     const stringified = JSON.stringify(req.body)
@@ -86,24 +82,24 @@ router.route('/searchproducts').post( (req, res) => {
         .catch(err => res.send(err))
 })
 
-router.route("/addproduct").post( validateToken, (req, res) => {
-    const newProduct = Product(req.body.product)
-    newProduct.save( err => {
-        if (err) {
-            return res.status(422).send(err);
-        }
-        res.json({
-            success: true
-        })
-    } )
-})
+// router.route("/addproduct").post( validateToken, (req, res) => {
+//     const newProduct = Product(req.body.product)
+//     newProduct.save( err => {
+//         if (err) {
+//             return res.status(422).send(err);
+//         }
+//         res.json({
+//             success: true
+//         })
+//     } )
+// })
 
-router.route('/updateproduct').post( validateToken, (req, res) => {
-    Product.findOneAndUpdate({name: req.body.product.name},req.body.product,{new: true})
-      .then(product => 
-        res.json(product))
-      .catch(err => res.status(400).json('Error: ' + err));
-})
+// router.route('/updateproduct').post( validateToken, (req, res) => {
+//     Product.findOneAndUpdate({name: req.body.product.name},req.body.product,{new: true})
+//       .then(product => 
+//         res.json(product))
+//       .catch(err => res.status(400).json('Error: ' + err));
+// })
 
 router.route('/search').post( (req, res) => {
     Product.find(req.body)

@@ -55,7 +55,6 @@ app.get('/', (req,res) => {
 })
 
 app.get('/login', (req,res) => {
-    state = {...state, ltest: 'ltest'}
     return res.send( html(ReactDOMServer.renderToString(
         <ServerApp  url={req.url}/>
     ), state) )
@@ -123,10 +122,6 @@ app.get('/products/:productId', (req,res) => {
             res.status(400).json({ error: "Product Doesn't Exist" })
         })
 })
-
-
-
-
 
 app.get('/*', (req,res) => {
     return res.send( html(ReactDOMServer.renderToString(
