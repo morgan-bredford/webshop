@@ -26,6 +26,7 @@ const Navbar = () => {
 
     const logout = () => {
         dispatch({type: 'logout'})
+        history.push("/")
     }
 
     const search = e => {
@@ -44,11 +45,23 @@ const Navbar = () => {
         }
     }
 
+    const addCloseEvent = () => {
+        document.addEventListener('mousedown', function handler(e){console.log(e.target.tagName)
+            if( e.target.className !== "menu_sidebar" && e.target.tagName !== 'LI'){console.log('clicked')
+                setShowMenu(false)
+                document.removeEventListener('mousedown', handler)
+            }
+        })
+    }
+
     return (
         <section className="header">
             <nav className="header_bar">
                 <ul className="header_ul">
-                    <div className="header_menu" onClick={ () => setShowMenu(!showMenu) }>
+                    <div className="header_menu" onClick={ () => {
+                        setShowMenu(!showMenu)
+                        addCloseEvent()
+                    }}>
                         <img src="/images/menu.png" className="header_menu_image" />
                         <div className="header_menu_text" >Meny</div>
                     </div>
