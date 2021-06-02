@@ -3,7 +3,7 @@ import { UserContext, DispatchContext } from '../contexts/contexts'
 import { URL } from '../../url'
 import axios from 'axios'
 
-const RegisterUser = () => {
+const RegisterUser = (props) => {
     const dispatch = useContext(DispatchContext)
     const { error } = useContext(UserContext)
     const [user, setUser] = useState({
@@ -51,11 +51,6 @@ const RegisterUser = () => {
         }
     }
 
-    const removeAni = () => {
-            document.querySelector('.login_form_section').classList.remove('login_ani')
-            document.querySelector('.register_form_section').classList.remove('register_ani')
-    }
-
     return (
         <section >
             <h3 className="register_h3">registrera här</h3>
@@ -71,7 +66,9 @@ const RegisterUser = () => {
                 <input type="text" name="lastname"  onChange={ e => changeHandler(e.target) }/><br />
                 <button style={{margin: '.6em', marginLeft: '30%'}}>Registrera</button>
             </form>
-            <span className="register_login_text" onClick={removeAni} >Har du redan konto? Logga in här.</span>
+            <span className="register_login_text" onClick={ () => props.removeAni() } >
+                Har du redan konto? Logga in här.
+            </span>
         </section>
     )
 }

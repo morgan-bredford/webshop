@@ -36,7 +36,7 @@ function UserPage() {
     }
 
     return (
-    <main>
+    <section>
         <br /><br />
         { !loggedIn ? <Redirect to='/' /> : null }
             <div style={{width: '30vw', margin: 'auto'}}>
@@ -92,7 +92,7 @@ function UserPage() {
                 </Link>
             </div>
         
-    </main>
+    </section>
     )
 }
 

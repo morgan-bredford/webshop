@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import Cart from './Cart';
 import Menu from './Menu';
 
-const Navbar = () => { 
+const Navbar = () => {
     const dispatch = useContext(DispatchContext)
     const { email, cart, loggedIn, jwtToken } = useContext(UserContext)
     const history = useHistory()
@@ -46,8 +46,8 @@ const Navbar = () => {
     }
 
     const addCloseEvent = () => {
-        document.addEventListener('mousedown', function handler(e){console.log(e.target.tagName)
-            if( e.target.className !== "menu_sidebar" && e.target.tagName !== 'LI'){console.log('clicked')
+        document.addEventListener('mousedown', function handler(e){
+            if( e.target.className !== "menu_sidebar" && e.target.tagName !== 'LI'){
                 setShowMenu(false)
                 document.removeEventListener('mousedown', handler)
             }

@@ -9,7 +9,7 @@ const html = (jsx, state) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/css/main.css">
             <link rel="stylesheet" href="/css/product.css">
-            <title>Document</title>
+            <title>MB's Webbshop</title>
         </head>
         <body>
             <div id="root">${jsx}</div>

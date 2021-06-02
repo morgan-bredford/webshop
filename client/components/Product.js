@@ -15,7 +15,6 @@ const Product = () => {
     const [loading1, setLoading1] = useState(false)
     const [loading2, setLoading2] = useState(false)
 
-
     const shuffleArray = (array) => {
         const new_array = [...array].sort(() => Math.random() - 0.5)
         if(reverse) new_array.reverse()
@@ -105,18 +104,20 @@ const Product = () => {
                         Beskrivning: {description}
                     </section>
                 </section>
-                <section className="price_add_seller">
-                    <div className="product_preview_price">
-                        <div>
-                            {price}<span className="currency">kr</span>
+                <section>
+                    <div className="price_add_seller">
+                        <div className="product_preview_price">
+                            <div>
+                                {price}<span className="currency">kr</span>
+                            </div>
+                            <div className="buy_button" onClick={ (e) => addToCart(e, _id, name, seller, price, image) }>
+                                köp
+                            </div>
                         </div>
-                        <div className="buy_button" onClick={ (e) => addToCart(e, _id, name, seller, price, image) }>
-                            köp
+                        <div className="product_seller">
+                            {seller.name}
                         </div>
                     </div>
-                    <section className="product_seller">
-                        {seller.name}
-                    </section>
                 </section>
                 <section className="related">
                     <h4 className="related_h4">--- relaterade produkter ---</h4>

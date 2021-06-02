@@ -43,10 +43,10 @@ const Search = () => {
 
     },[current_search])
 
-    const addToCart = ( e, _id, name, seller, price ) => {
+    const addToCart = ( e, _id, name, seller, price, image ) => {
         e.stopPropagation()
         e.preventDefault()
-        dispatch({type: 'add_to_cart', payload: { _id, name, seller, price } })
+        dispatch({type: 'add_to_cart', payload: { _id, name, seller, price, image } })
     }
 
     return(
@@ -71,7 +71,7 @@ const Search = () => {
                                             <div>
                                                 {price}<span className="currency">kr</span>
                                             </div>
-                                            <div className="buy_button" onClick={ (e) => addToCart(e, _id, name, seller, price) }>
+                                            <div className="buy_button" onClick={ (e) => addToCart(e, _id, name, seller, price, image) }>
                                                 köp
                                             </div>
                                         </div>

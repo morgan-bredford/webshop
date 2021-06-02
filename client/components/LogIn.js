@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import { UserContext, DispatchContext } from '../contexts/contexts'
 import RegisterUser from './RegisterUser'
@@ -8,6 +8,8 @@ import axios from 'axios'
 const LogIn = () => {
     const dispatch = useContext(DispatchContext)
     const { loggedIn, jwtToken, login_error } = useContext(UserContext)
+    const loginRef = useRef(null)
+    const registerRef = useRef(null)
 
     const login = (e) => {
         e.preventDefault()
@@ -29,9 +31,14 @@ const LogIn = () => {
     }
 
     const addAnimation = () => {
-        document.querySelector('.login_form_section').classList.add('login_ani')
-        document.querySelector('.register_form_section').classList.add('register_ani')
-    } 
+        loginRef.current.className = loginRef.current.className+" login_ani"
+        registerRef.current.className = registerRef.current.className+" register_ani"
+    }
+    
+    const removeAni = () => {
+        loginRef.current.className = "login_form_section"
+        registerRef.current.className = "register_form_section"
+    }
 
     return(
         <>
@@ -43,10 +50,9 @@ const LogIn = () => {
             }
             <main className="login_main">
                 <section className="login_container">
-                    <section className="login_form_section">
+                    <section ref={loginRef} className="login_form_section">
                         <h2>Välkommen att logga in</h2>
                         <div className="login_form_error"> { login_error && <>Felaktig email eller lösenord</> }</div>
-                        
                         <form className="login_form" onSubmit={(e) => login(e)}>
                             <div>
                                 <label>Email:</label>
@@ -62,8 +68,8 @@ const LogIn = () => {
                         </form>
                         <span className="login_register_text" onClick={addAnimation}>Har du inget konto? Registrera här.</span>
                     </section>
-                    <section className="register_form_section">
-                        <RegisterUser />
+                    <section ref={registerRef} className="register_form_section">
+                        <RegisterUser removeAni={removeAni} />
                     </section>
                 </section>
             </main>
