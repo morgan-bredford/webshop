@@ -1,6 +1,5 @@
 # webshop
  MB's webbshop  
- http://ec2-13-48-85-50.eu-north-1.compute.amazonaws.com:8181/  
  
 A demo web shop built with React, Server-Side Rendering, NodeJS, GraphQL, MongoDB, Webpack, jsonwebtokens.
 
